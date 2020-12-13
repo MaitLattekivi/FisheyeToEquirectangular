@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nc-rd-facemask"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\opencv\;CMake Files\..\..\..\..\opencv\build\;CMake Files\..\..\..\..\opencv\build\x64\;CMake Files\..\..\..\..\opencv\build\x64\vc15\;CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\Maidu\Desktop\FisheyeToEquirectangular\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/../../../../opencv/build/x64/vc15/lib/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/../../../../opencv/build/x64/vc15/lib/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/../../../../opencv/build/x64/vc15/lib/OpenCVModules-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/../../../../opencv/build/x64/vc15/lib/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/Maidu/Desktop/FisheyeToEquirectangular/../../../../opencv/build/x64/vc15/lib/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\opencv\build\x64\vc15\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -14,6 +14,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.boofcv</groupId>
             <artifactId>boofcv-core</artifactId>
@@ -26,11 +27,8 @@
             <version>0.36</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.boofcv</groupId>
-            <artifactId>boofcv-ffmpeg</artifactId>
-            <version>0.36</version>
-        </dependency>
+
+
 
 
     </dependencies>

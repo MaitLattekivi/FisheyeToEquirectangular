@@ -5,19 +5,19 @@
 # radial = radial distortion, (t1,t2) = tangential distortion
 
 pinhole:
-  fx: 1159.170724276495
-  fy: 1158.8268432815776
-  cx: 1898.586538796371
-  cy: 972.987046235117
+  fx: 2151.6168117931597
+  fy: 2161.652781357435
+  cx: 1894.179700702442
+  cy: 968.7551405752832
   width: 3840
   height: 2160
   skew: 0.0
 model: omnidirectional_universal
 radial_tangential:
   radial:
-  - -0.2592930846348602
-  - 0.05540814180272952
+  - 0.3207260522384846
+  - 1.311770851988966
   t1: 0.0
   t2: 0.0
 version: 0
-mirror_offset: 0.7811638598983023
+mirror_offset: 2.2268230796296904

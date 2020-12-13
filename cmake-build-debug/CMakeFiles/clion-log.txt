@@ -1,0 +1,12 @@
+C:\Users\Maidu\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\203.5981.166\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\Users\Maidu\Desktop\FisheyeToEquirectangular
+-- Build type: Debug
+-- Configuration types: 
+-- A 32-bit OS detected
+-- OpenCV library status:
+--     config: c:/opencv/build/x64/vc15/lib
+--     version: 4.5.0
+--     libraries: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_gapi;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_videoio;opencv_world
+--     include path: C:/opencv/build/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Maidu/Desktop/FisheyeToEquirectangular/cmake-build-debug

@@ -12,8 +12,9 @@ import boofcv.struct.image.GrayF32;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-public class Calibrate {
-    public static void main( String[] args ) {
+
+public class CalibrateFisheye {
+    public static void main(String[] args) {
         DetectorFiducialCalibration detector;
         List<String> images;
 
@@ -21,12 +22,15 @@ public class Calibrate {
         detector = FactoryFiducialCalibration.chessboardX(null,new ConfigGridDimen(5, 7, 30));
         images = UtilIO.listAll(UtilIO.path("src/main/py/pildid"));
 
-
         // Declare and setup the calibration algorithm
         CalibrateMonoPlanar calibrationAlg = new CalibrateMonoPlanar(detector.getLayout());
 
         // tell it type type of target and which parameters to estimate
         calibrationAlg.configureUniversalOmni( true, 2, false);
+
+        // it's also possible to fix the mirror offset parameter
+        // 0 = pinhole camera. 1 = fisheye
+//		calibrationAlg.configureUniversalOmni( true, 2, false,1.0);
 
         for( String n : images ) {
             BufferedImage input = UtilImageIO.loadImage(n);
