@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<video id="video" style="display:inline" autoplay playsinline></video>
+
+<script src="three.js-master/build/three.min.js"></script>
+<!--
+<script id="fragmentShader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform float     u_time;
+uniform vec2      u_resolution;
+uniform float     u_angle;
+uniform sampler2D u_texture;
+
+void main()
+{
+    vec2 uv = gl_FragCoord.xy / u_resolution;
+    vec2 ndcPos = uv * 2.0 - 1.0;
+
+    float aspect = u_resolution.x / u_resolution.y;
+
+    float eye_angle = abs(u_angle);
+    float half_angle = eye_angle/2.0;
+    float half_dist = tan(half_angle);
+
+    vec2  vp_scale = vec2(aspect, 1.0);
+    vec2  P = ndcPos * vp_scale;
+
+    float vp_dia   = length(vp_scale);
+    float rel_dist = length(P) / vp_dia;
+    vec2  rel_P = normalize(P) / normalize(vp_scale);
+
+    vec2 pos_prj = ndcPos;
+    if (u_angle > 0.0)
+    {
+        float beta = rel_dist * half_angle;
+        pos_prj = rel_P * tan(beta) / half_dist;
+    }
+    else if (u_angle < 0.0)
+    {
+        float beta = atan(rel_dist * half_dist);
+        pos_prj = rel_P * beta / half_angle;
+    }
+
+    vec2 uv_prj = pos_prj * 0.5 + 0.5;
+    vec2 rangeCheck = step(vec2(0.0), uv_prj) * step(uv_prj, vec2(1.0));
+    if (rangeCheck.x * rangeCheck.y < 0.5)
+        discard;
+
+    vec4 texColor = texture2D(u_texture, uv_prj.st);
+    gl_FragColor = vec4( texColor.rgb, 1.0 );
+}
+
+
+</script>
+
+<script id="vertexShader" type="x-shader/x-vertex">
+
+precision mediump float;
+
+attribute vec2 inPos;
+
+void main()
+{
+    gl_Position = vec4( inPos.xy, 0.0, 1.0 );
+}
+
+</script> -->
+
+<script id="vertexShader" type="x-shader/x-vertex">
+precision highp float;
+
+attribute vec3 aVertexPosition;
+
+attribute vec2 aTextureCoord;
+
+varying vec3 vPosition;
+varying vec2 vTextureCoord;
+
+void main(void){
+	vPosition = aVertexPosition;
+	vTextureCoord = aTextureCoord;
+
+	gl_Position = vec4(vPosition,1.0);
+}
+</script>
+
+<script id="fragmentShader" type="x-shader/x-fragment">
+precision highp float;
+uniform vec4 uLens;
+uniform vec2 uFov;
+
+uniform sampler2D uSampler;
+
+varying vec3 vPosition;
+varying vec2 vTextureCoord;
+
+vec2 TextureCoord2GLCoord(vec2 textureCoord) {
+	return (textureCoord - vec2(0.5, 0.5)) * 2.0;
+}
+vec2 GLCoord2TextureCoord(vec2 glCoord) {
+	return glCoord / 2.0 + vec2(0.5, 0.5);
+}
+
+void main(void){
+	float correctionRadius = 0.5;
+	float distance = sqrt(vPosition.x * vPosition.x + vPosition.y * vPosition.y) / correctionRadius;
+
+	float theta = 1.0;
+	if(distance != 0.0){
+		theta = atan(distance);
+	}
+	vec2 vMapping = theta * vPosition.xy;
+
+	vMapping = GLCoord2TextureCoord(vMapping);
+
+	vec4 texture = texture2D(uSampler, vMapping);
+	if(vMapping.x > 0.99 || vMapping.x < 0.01 || vMapping.y > 0.99 || vMapping.y < 0.01){
+		texture = vec4(0.0, 0.0, 0.0, 1.0);
+	}
+	gl_FragColor = texture;
+}
+</script>
+
+
+<script>
+    var container;
+    var camera, scene, renderer;
+
+    init();
+
+
+    function init() {
+
+
+        camera = new THREE.Camera();
+        camera.position.z = 1;
+
+        var video = document.getElementById("video");
+        const sampler2D = new THREE.VideoTexture(video);
+
+        uLens = new THREE.Vector4(0.33, 1.332, 1.15, 0.0);
+        uFov = new THREE.Vector2(1.226, 2.0);
+
+        avp = new THREE.Vector3();
+        atc = new THREE.Vector2();
+
+
+        var attributes ={
+            aVertexPosition: {value: avp },
+            aTextureCoord: {value: atc},
+        }
+        scene = new THREE.Scene();
+        var uniforms = {
+            uSampler: {value: sampler2D},
+            uLens: {value: uLens},
+            uFov: {value: uFov},
+            scale: {value: 1},
+            map: sampler2D,
+            defines: {
+                USE_MAP: true
+            }
+            /*radius: {value: 1.0},
+            uvOffset: {value: new THREE.Vector4(0,0,0,0)},
+            u_texture: {
+                type: "t", value: u_texture
+            },
+            u_time: {
+                value: time,
+            },
+            u_resolution: {value: new THREE.Vector2(window.innerWidth,window.innerHeight)},
+            u_angle: {value: 50 * Math.PI * 0.9},
+
+            //strength: {value: 1.0},         // s: 0 = perspective, 1 = stereographic
+            //height: {value: Math.tan(degrees_to_radians(90)) / 2},            // h: tan(verticalFOVInRadians / 2)
+            //aspectRatio: {value: 1.0},       // a: screenWidth / screenHeight
+            //cylindricalRatio: {value: 1.0}  // c: cylindrical distortion ratio. 1 = spherical*/
+        };
+
+
+        const material = new THREE.ShaderMaterial({
+            uniforms: uniforms,
+            attributes: attributes,
+            vertexShader: document.getElementById('vertexShader').textContent,
+            fragmentShader: document.getElementById('fragmentShader').textContent,
+
+        });
+
+
+        const geometry = new THREE.PlaneBufferGeometry();
+        console.log(material);
+        geometry.attributes = attributes;
+
+
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(0, 0, 0);
+        mesh.lookAt(camera.position);
+        scene.add(mesh);
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(3840, 2160);
+        document.body.appendChild(renderer.domElement);
+
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+
+            const constraints = {video: {width: 3840, height: 2160, facingMode: 'user'}};
+
+            navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                // apply the stream to the video element used in the texture
+                video.srcObject = stream;
+                video.play();
+
+            }).catch(function (error) {
+
+                console.error('Unable to access the camera/webcam.', error);
+
+            });
+        } else {
+
+            console.error('MediaDevices interface not available.');
+        }
+    }
+
+    function degrees_to_radians(degrees) {
+        var pi = Math.PI;
+        return degrees * (pi / 180);
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+
+    }
+
+    animate();
+
+
+</script>
+</body>
+</html>
