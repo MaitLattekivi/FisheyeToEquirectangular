@@ -74,7 +74,7 @@ public class RemoveLensDistortion {
         fullView.apply(distortedImg,undistortedImg);
         BufferedImage out2 = ConvertBufferedImage.convertTo(undistortedImg, null,true);
 
-        File otput = new File("undist.jpg");
+        File otput = new File("undist2.jpg");
         ImageIO.write(out1,"jpg", otput);
 
         // display in a single window where the user can easily switch between images
