@@ -63,12 +63,12 @@ public class FisheyeToPinhole {
         BufferedImage bufferedPinhole0 = ConvertBufferedImage.convertTo(pinholeImage,null,true);
 
 
-        File otput = new File("kalibreeritudpilt.jpg");
+        File otput = new File("kalibreeritudpilt2.jpg");
         ImageIO.write(bufferedPinhole0,"jpg", otput);
         ListDisplayPanel panel = new ListDisplayPanel();
         panel.addImage(bufferedPinhole0,"Pinehole Forward");
         panel.addImage(bufferedFisheye,"Fisheye");
-        panel.setPreferredSize(new Dimension(1920,1080));
+        panel.setPreferredSize(new Dimension(3840,2160));
 
         ShowImages.showWindow(panel, "Fisheye to Pinhole", true);
     }

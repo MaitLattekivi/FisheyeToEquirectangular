@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FisheyeToEquirectangular.iml" filepath="$PROJECT_DIR$/.idea/FisheyeToEquirectangular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GCP.iml" filepath="$PROJECT_DIR$/GCP.iml" />
     </modules>
   </component>
 </project>

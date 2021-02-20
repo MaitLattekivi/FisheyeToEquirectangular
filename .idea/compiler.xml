@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GCP" />
-        <module name="FisheyeToEquirectangular" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="GCP" target="14" />
+    </bytecodeTargetLevel>
   </component>
 </project>
