@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/boofcv/boofcv-types/0.36/boofcv-types-0.36.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/boofcv/boofcv-types/0.36/boofcv-types-0.36-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/boofcv/boofcv-types/0.36/boofcv-types-0.36-sources.jar!/" />
     </SOURCES>

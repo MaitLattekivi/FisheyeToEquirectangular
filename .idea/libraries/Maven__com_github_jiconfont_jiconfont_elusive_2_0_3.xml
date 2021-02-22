@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-elusive/2.0.3/jiconfont-elusive-2.0.3.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-elusive/2.0.3/jiconfont-elusive-2.0.3-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-elusive/2.0.3/jiconfont-elusive-2.0.3-sources.jar!/" />
     </SOURCES>

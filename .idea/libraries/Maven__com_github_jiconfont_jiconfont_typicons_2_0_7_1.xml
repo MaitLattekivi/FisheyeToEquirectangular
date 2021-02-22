@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-typicons/2.0.7.1/jiconfont-typicons-2.0.7.1.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-typicons/2.0.7.1/jiconfont-typicons-2.0.7.1-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/github/jiconfont/jiconfont-typicons/2.0.7.1/jiconfont-typicons-2.0.7.1-sources.jar!/" />
     </SOURCES>
